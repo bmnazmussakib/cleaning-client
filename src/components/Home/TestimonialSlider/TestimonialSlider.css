@@ -1,0 +1,22 @@
+.testimonial-card-top {
+    padding: 20px;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: #c7c7c7;
+}
+
+.star-icon {
+    color: orange;
+    font-size: 1.5rem;
+    margin: 30px 3px 0 3px;
+}
+
+.testimonial-card-text {
+    color: var(--secondary-color);
+}
+
+.testimonial-card-title {
+    font-weight: 700;
+}

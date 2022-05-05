@@ -1,0 +1,150 @@
+.banner {
+    background-image: url(../../../img/House-cleaning-service.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+    position: relative;
+    /* margin-top: -100px; */
+}
+
+.banner-content {
+    max-width: 50%;
+    z-index: 100;
+    position: absolute;
+}
+
+.banner-content h1 {
+    font-family: "Rajdhani", Sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 75px;
+    color: #ffffff;
+}
+
+.banner-content p {
+    color: #ffffff;
+}
+
+.banner-content p, a {
+    font-family: 'Rubik', sans-serif;
+    line-height: 28px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    font-display: swap;
+}
+
+
+
+.banner-overlay {
+    /* background: linear-gradient(100deg, hsl(195, 100%, 11%) 0%, rgba(255, 255, 255, 0) 120%); */
+    background: rgba(49, 49, 49, 0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+}
+
+
+
+/* Responsive */
+@media (min-width: 320px) { 
+    .banner {
+        height: 500px;
+    }
+
+    .banner-content {
+        max-width: 80%;
+        z-index: 100;
+        position: absolute;
+    }
+    
+    .banner-content h1 {
+        font-family: "Rajdhani", Sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 45px;
+        color: #ffffff;
+    }
+    
+    .banner-content p {
+        color: #ffffff;
+        font-size: 14px;
+    }
+
+    .banner {
+        padding: 50px 0;
+    }
+
+    .blue-btn {
+        padding: 6px 20px 6px 20px;
+        font-size: 12px;
+        border-radius: 3px 3px 3px 3px;
+    }
+
+    .white-btn {
+        padding: 6px 20px 6px 20px;
+        font-size: 12px;
+        border-radius: 3px 3px 3px 3px;
+    }
+}
+
+@media (min-width: 576px) { 
+    
+}
+
+@media (min-width: 768px) { 
+    .banner {
+        padding: 200px 0;
+        height: 650px;
+    }
+
+    .banner-content {
+        max-width: 70%;
+        z-index: 100;
+        position: absolute;
+    }
+    
+    .banner-content h1 {
+        font-family: "Rajdhani", Sans-serif;
+        font-size: 70px;
+        font-weight: 700;
+        line-height: 75px;
+        color: #ffffff;
+    }
+    
+    .banner-content p {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+    .blue-btn {
+        padding: 14px 30px 14px 30px;
+        font-size: 16px;
+        border-radius: 3px 3px 3px 3px;
+    }
+
+    .white-btn {
+        padding: 14px 30px 14px 30px;
+        font-size: 16px;
+        border-radius: 3px 3px 3px 3px;
+    }
+ }
+
+@media (min-width: 992px) { 
+    .banner {
+        padding: 200px 0;
+        height: 750px;
+    }
+
+    .banner-content {
+        max-width: 50%;
+        z-index: 100;
+        position: absolute;
+    }
+ }
+
+@media (min-width: 1200px) {  }
+
+@media (min-width: 1400px) {  }

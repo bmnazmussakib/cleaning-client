@@ -1,0 +1,57 @@
+.footer {
+    background: var(--primary-color);
+    padding: 50px 0;
+    color: var(--white-color);
+}
+
+.footer ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer a{
+    text-decoration: none;
+    color: var(--white-color);
+    transition: all 0.3s ease;
+
+}
+
+.footer a:hover{
+    text-decoration: none;
+    color: var(--black-color);
+
+}
+
+.address-icon {
+    font-size: 1.5rem;
+}
+
+.footer-menu-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.footer-menu-item a{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+.footer-address-list {}
+
+.footer-address-list li{}
+
+.footer-address-list li p{
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+    transition: all 0.3s ease;
+}
+
+.footer-address-list li p:hover{
+    color: var(--black-color);
+    cursor: pointer;
+}

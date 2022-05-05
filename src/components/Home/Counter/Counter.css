@@ -1,0 +1,53 @@
+
+.counter {
+    background-color: var(--primary-color);
+    background-image: url("https://themehoster.com/tf/wp/mixxon/wp-content/uploads/2022/04/bg-2.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+
+
+
+.counter-card-value {
+    color: var(--white-color);
+    font-family: "Rajdhani", Sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.counter-card-title {
+    color: var(--white-color);
+    font-family: "Rubik", Sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+/* ================================= */
+/* Responsive */
+/* ================================= */
+@media (min-width: 320px) { 
+    .counter-card {
+        margin-bottom: 80px;
+    }
+ }
+
+@media (min-width: 576px) {  }
+
+@media (min-width: 768px) {  }
+
+@media (min-width: 992px) { 
+    .counter-card {
+        margin-bottom: 0px;
+    }
+ }
+
+@media (min-width: 1200px) {  }
+
+@media (min-width: 1400px) {  }

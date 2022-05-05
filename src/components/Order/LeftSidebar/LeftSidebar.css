@@ -1,0 +1,42 @@
+.left-side-bar {
+    background-color: var(--white-color);
+    min-height: 100vh;
+    padding: 0;
+    box-shadow: 10px -1px 20px -9px rgba(0,0,0,0.6);
+}
+
+.left-side-logo {
+    margin-bottom: 80px;
+}
+
+
+
+.left-side-menu {
+    /* margin-top: 50px; */
+}
+.left-side-menu ul{
+    list-style: none;
+}
+.left-side-menu ul li{
+    color:  var(--black-color) !important;
+    cursor: pointer;
+}
+
+.left-side-menu-item {
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 60px;
+    color:  var(--black-color) !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.left-side-menu-item:hover {
+    color:  var(--primary-color) !important;
+}
+
+.left-side-menu-icon {
+    color: var(--primary-color);
+}

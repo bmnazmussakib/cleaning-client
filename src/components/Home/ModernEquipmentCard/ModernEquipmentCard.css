@@ -1,0 +1,41 @@
+.modern-card {
+    padding: 0 20px;
+}
+
+.modern-card h4 {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 26px;
+}
+.modern-card h4, p {
+    color: #ffffff;
+}
+
+.modern-card-img {
+    width: 200px;
+    
+}
+
+.modern-card-img img{
+    width: 100%;
+}
+
+@media (min-width: 320px) { 
+    .modern-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 576px) { 
+    .modern-card {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 768px) {  }
+
+@media (min-width: 992px) {  }
+
+@media (min-width: 1200px) {  }
+
+@media (min-width: 1400px) {  }

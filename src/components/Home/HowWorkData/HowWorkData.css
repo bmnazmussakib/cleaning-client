@@ -1,0 +1,57 @@
+.how-work-card {
+    text-align: center;
+    border: none !important;
+}
+
+
+.how-work-card-img {
+    max-width: 60px;
+    margin: 0 auto;
+}
+
+.how-work-card-img img{
+    
+}
+
+.how-work-card-text {
+    color: var(--secondary-color);
+}
+
+
+
+/* ================================================== */
+/* Responsive */
+/* ================================================== */
+
+@media (min-width: 320px) {
+    .how-work-card {
+        padding: 20px 10px 10px 10px;
+    }
+    .how-work-card-title {
+        font-weight: 700;
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {
+    .how-work-card {
+        padding: 20px 10px 10px 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .how-work-card {
+        padding: 30px;
+    }
+
+    .how-work-card-title {
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 1400px) {}

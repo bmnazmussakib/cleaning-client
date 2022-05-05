@@ -11,3 +11,185 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/* ============================================== */
+/* Color */
+/* ============================================== */
+:root {
+  /* --primary-color: #0086b8; */
+  --primary-color: #90c73e;
+  --secondary-color: #696969;
+  --white-color: #ffffff;
+  --black-color: #3d3d3d;
+}
+
+
+
+/* ============================================== */
+/* Typography */
+/* ============================================== */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+
+
+p {
+  color: var(--secondary-color);
+  font-family: "Rubik", Sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1em;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  color: var(--black-color);
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 48px;
+  margin-bottom: 40px;
+}
+
+
+
+
+/* ============================================== */
+/* Section */
+/* ============================================== */
+section {
+  padding: 100px 0;
+}
+
+
+/* ========================================== */
+/* Button */
+/* ========================================== */
+.white-btn {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  padding: 14px 30px 14px 30px;
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 3px 3px;
+  text-decoration: none;
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+.white-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 14px 30px 14px 30px;
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 3px 3px;
+  text-decoration: none;
+}
+
+
+.blue-btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 14px 30px 14px 30px;
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 3px 3px;
+  text-decoration: none;
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+
+.blue-btn:hover {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  padding: 14px 30px 14px 30px;
+  font-family: "Rajdhani", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px 3px 3px 3px;
+  text-decoration: none;
+
+}
+
+
+/* ========================================== */
+/* Responsive */
+/* ========================================== */
+@media (min-width: 320px) {
+  p {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    line-height: 1.1em;
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {
+  p {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    line-height: 1.1em;
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 1400px) {}
