@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import AdminLeftSidebar from '../AdminLeftSidebar/AdminLeftSidebar';
 import LeftSidebar from '../AdminLeftSidebar/AdminLeftSidebar';
 import MakeAdminBody from '../MakeAdminBody/MakeAdminBody';
@@ -15,6 +16,7 @@ const MakeAdmin = () => {
                     <MakeAdminBody />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

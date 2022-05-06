@@ -1,0 +1,20 @@
+.edit-btn,
+.delete-btn {
+    border: 1px solid var(--primary-color);
+}
+
+.edit-btn {
+    background: #3E90C7;
+    border: 1px solid #3E90C7;
+}
+.edit-btn:hover {
+    color:  #3E90C7;
+}
+
+.delete-btn {
+    background: #C73E4B;
+    border: 1px solid #C73E4B;
+}
+.delete-btn:hover {
+    color: #C73E4B;
+}

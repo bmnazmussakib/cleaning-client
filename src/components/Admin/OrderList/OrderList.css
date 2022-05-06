@@ -1,2 +1,8 @@
-.order {}
+/* .order-table th {
+    color: var(--primary-color);
+} */
 
+.status-option {
+    font-weight: 700;
+    font-size: 1.2rem;
+}

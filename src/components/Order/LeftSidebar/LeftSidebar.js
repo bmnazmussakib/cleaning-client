@@ -16,7 +16,7 @@ const LeftSidebar = () => {
     return (
         <div className='left-side-bar'>
             <div className="left-side-logo">
-                <img src={logo} alt="" className="img-fluid w-75 " />
+                <Link to="/"><img src={logo} alt="" className="img-fluid w-75 " /></Link>
             </div>
 
             <div className="left-side-menu">

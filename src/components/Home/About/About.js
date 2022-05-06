@@ -6,7 +6,7 @@ import aboutImg2 from '../../../img/about-2.jpg'
 
 const About = () => {
     return (
-        <section className="about">
+        <section className="about" id='about'>
             <div className="row">
                 <div className="col-lg-6  order-md-2 order-lg-1">
                     <div className="about-img-container ">

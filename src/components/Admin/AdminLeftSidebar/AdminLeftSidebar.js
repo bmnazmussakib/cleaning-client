@@ -14,9 +14,9 @@ import { BiCustomize } from 'react-icons/bi';
 
 const AdminLeftSidebar = () => {
     return (
-        <div className='left-side-bar'>
+        <div className='admin-left-side-bar'>
             <div className="left-side-logo">
-                <img src={logo} alt="" className="img-fluid w-75 " />
+                <Link to="/"><img src={logo} alt="" className="img-fluid w-75 " /></Link>
             </div>
 
             <div className="left-side-menu">

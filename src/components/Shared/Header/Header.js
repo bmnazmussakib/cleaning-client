@@ -7,6 +7,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { MdEmail } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -51,13 +52,14 @@ const Header = () => {
                             <Nav.Link className='nav-menu' href="#about">About</Nav.Link>
                             <Nav.Link className='nav-menu' href="#team">Team</Nav.Link>
                             <Nav.Link className='nav-menu' href="#contact">Contact Us</Nav.Link>
+                            <Nav.Link className='nav-menu' href="#contact"><Link className='admin-link' to="/add-service">Admin</Link></Nav.Link>
                         </Nav>
                         <Nav className="ms-auto">
                             <Nav.Link>
                                 <div className="call-now d-flex align-items-center justify-content-between">
                                     <BsPhoneVibrateFill className='fs-1 me-3 call-now-icon'/>
                                     <div className="call-now-text">Call For Appointment <br />
-                                        (+980) 12345 67890</div>
+                                        <span>(+980) 12345 67890</span></div>
                                 </div>
                             </Nav.Link>
                         </Nav>

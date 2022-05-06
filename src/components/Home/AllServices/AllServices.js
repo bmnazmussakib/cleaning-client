@@ -20,7 +20,7 @@ const AllServices = ({ services, id }) => {
                 </div>
                 <div className="card-body p-0">
                     <p className="service-card-text card-text">{serviceDecription}</p>
-                    <Link to="/add-service"><a href="#">Read more <BiChevronRight /></a></Link>
+                    <Link to="/service-booking"><a href="#">Read more <BiChevronRight /></a></Link>
                 </div>
             </div>
         </div>

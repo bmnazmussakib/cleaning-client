@@ -28,6 +28,18 @@ code {
 
 
 /* ============================================== */
+/* Selection */
+/* ============================================== */
+::selection {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+
+
+
+
+/* ============================================== */
 /* Typography */
 /* ============================================== */
 
@@ -139,6 +151,51 @@ section {
   text-decoration: none;
 
 }
+
+
+/* ============================================== */
+/* Table */
+/* ============================================== */
+table {
+  font-family: "Rajdhani", Sans-serif;
+  /* font-family: "Rubik", Sans-serif; */
+}
+
+table thead {
+  background: var(--primary-color);
+  color: var(--white-color) !important;
+  text-align: center;
+
+}
+
+table thead th{
+  font-size: 1.4rem;
+}
+
+table tbody {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+
+table tbody select {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  color: var(--secondary-color) !important;
+}
+
+table tbody select option{
+  font-size: 1.2rem;
+  /* text-align: center; */
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+
+
+
 
 
 /* ========================================== */

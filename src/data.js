@@ -59,39 +59,51 @@ export const modernCardData = [
 //=============================== Services ===============================
 export const services = [
     {
+        id:1,
         img: houseCleaning,
         serciceName: 'House Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     },
     {
+        id:2,
         img: kitchenCleaning,
         serciceName: 'Kitchen Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     },
     {
+        id:3,
         img: carpetCleaning,
         serciceName: 'Carpet Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     },
     {
+        id:4,
         img: windowCleaning,
         serciceName: 'Window Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     },
     {
+        id:4,
         img: floorCleaning,
         serciceName: 'Floor Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     },
     {
+        id:5,
         img: bathroomCleaning,
         serciceName: 'Bathroom Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
+        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+        price: 2000
 
     }
 ]
@@ -158,3 +170,25 @@ export const teamCard = [
 //         userData = (data)
 //     })
 
+export const orderListData = [
+    {
+        username: 'sakib',
+        email: 'sakib@gmail.com',
+        service: 'Window Cleaning',
+        paywith: 'credit card',
+        status: [
+            {
+                status: 'done',
+                value: 1
+            },
+            {
+                status: 'ongoing',
+                value: 2
+            },
+            {
+                status: 'pending',
+                value: 3
+            },
+        ]
+    },
+]

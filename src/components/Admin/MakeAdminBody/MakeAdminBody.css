@@ -1,5 +1,10 @@
-
-
 .make-admin-title {
     color: var(--primary-color);
+}
+
+.make-admin-btn {
+    border: 1px solid transparent;
+}
+.make-admin-btn:hover {
+    border: 1px solid var(--primary-color);
 }

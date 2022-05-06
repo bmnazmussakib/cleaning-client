@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './OrderListBody.css';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 
-const OrderListBody = () => {
+const OrderListBody = ({ orderListItem }) => {
+
+
+
+
+
     return (
-        <div className='order-list-body py-3'>
-            <div className="container">
-                <h1 className='order-list-title section-subtitle text-center'>Order List</h1>
-            </div>
-        </div>
+        <></>
+
     );
 };
 

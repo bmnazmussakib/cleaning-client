@@ -24,7 +24,7 @@ header {
 .header-address-list li p {
     color: var(--black-color);
     margin-bottom: 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 500;
     font-size: 1.1rem;
@@ -46,7 +46,7 @@ header {
 .header-social-icon li {}
 
 .header-social-icon li a {
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .header-social-icon li a:hover {
@@ -64,12 +64,15 @@ header .navbar {
     width: 10%;
 }
 
-.nav-menu {
+.nav-menu, .admin-link {
     margin: 0 10px;
     /* color: #ffffff !important; */
     font-family: 'Rajdhani', sans-serif;
     font-size: 20px !important;
     font-weight: 700;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
 }
 
 .nav-menu:hover {
@@ -80,14 +83,23 @@ header .navbar {
     /* color: rgb(255, 255, 255) !important; */
     font-family: 'Rajdhani', sans-serif;
     font-size: 18px !important;
-    font-weight: 600;
+    font-weight: 700;
+    transition: all 0.5s ease;
+
 }
 
 .call-now-icon {
     color: var(--primary-color) !important;
-    transition: all 0.3s !important;
+    transition: all 0.5s ease !important;
+}
 
+.call-now-text span{
+    transition: all 0.5s ease;
 
+}
+
+.call-now:hover .call-now-text span{
+    color: var(--primary-color) !important;
 }
 
 .call-now:hover .call-now-icon {
