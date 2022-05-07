@@ -15,7 +15,7 @@ const Banner = () => {
                             <p>NEED PROFESSIONAL CLEANING SERVICE?</p>
                             <h1>We Are The Best Cleaning Service Company</h1>
                             <p className='mb-5'>We Are Providing Best Cleaning Services About Twenty Years. Our All Cleaning Staffs Are Expert And High Experienced. </p>
-                            <a href="#" className='white-btn me-3'>About us</a> <a href="" className='blue-btn'>Our Services</a>
+                            <a href="#about" className='white-btn me-3'>About us</a> <a href="#service" className='blue-btn'>Our Services</a>
                         </div>
                     </div>
                     <div className="col-lg-6">

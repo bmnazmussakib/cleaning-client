@@ -51,8 +51,8 @@ const Header = () => {
                             <Nav.Link className='nav-menu' href="#service">Service</Nav.Link>
                             <Nav.Link className='nav-menu' href="#about">About</Nav.Link>
                             <Nav.Link className='nav-menu' href="#team">Team</Nav.Link>
-                            <Nav.Link className='nav-menu' href="#contact">Contact Us</Nav.Link>
-                            <Nav.Link className='nav-menu' href="#contact"><Link className='admin-link' to="/add-service">Admin</Link></Nav.Link>
+                            <Nav.Link className='nav-menu' href="#footer">Contact Us</Nav.Link>
+                            <Nav.Link className='nav-menu' ><Link className='admin-link' to="/add-service">Admin</Link></Nav.Link>
                         </Nav>
                         <Nav className="ms-auto">
                             <Nav.Link>
