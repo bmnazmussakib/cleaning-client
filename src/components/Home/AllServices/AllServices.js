@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const AllServices = ({ services, id }) => {
 
-    const { img, serciceName, serviceDecription } = services;
+    const { img, name, decription } = services;
 
     return (
         <div className="col">
@@ -16,10 +16,10 @@ const AllServices = ({ services, id }) => {
                     <div className="service-card-img me-3 mb-4">
                         <img src={img} className=" img-fluid" alt="..." />
                     </div>
-                    <h5 className="service-card-title card-title">{serciceName}</h5>
+                    <h5 className="service-card-title card-title">{name}</h5>
                 </div>
                 <div className="card-body p-0">
-                    <p className="service-card-text card-text">{serviceDecription}</p>
+                    <p className="service-card-text card-text">{decription}</p>
                     <Link to="/service-booking"><a href="#">Read more <BiChevronRight /></a></Link>
                 </div>
             </div>

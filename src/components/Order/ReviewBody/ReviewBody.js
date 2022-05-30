@@ -1,7 +1,43 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import './ReviewBody.css';
 
 const ReviewBody = () => {
+
+    const initialState = {
+        name: "",
+        designation: "",
+        message: ""
+    }
+
+    const [review, setReview] = useState(initialState);
+
+
+    // Input value
+    const handleOnChange = (e) => {
+        const {name, value} = e.target;
+        setReview({...review, [name]: value});
+    }
+
+
+    const {name, designation, message} = review;
+    // Submit
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+
+        if(!name || !designation || !message){
+            alert('Input field is empty');
+        }else{
+            axios.post('http://localhost:3030/add-review',{
+                review
+            })
+            .then(res => res.json())
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    }
+
     return (
         <div className='review-body py-3'>
             <div className="container">
@@ -10,15 +46,15 @@ const ReviewBody = () => {
                 {/* Form */}
                 <div className="row display-flex justify-content-center">
                     <div className="col-10">
-                        <form>
+                        <form onSubmit={handleOnSubmit}>
                             <div className="mb-3">
-                                <input type="text" className="form-control" id="name" placeholder='Your Name' />
+                                <input type="text" name="name" className="form-control" id="name" placeholder='Your Name' onChange={handleOnChange}/>
                             </div>
                             <div className="mb-3">
-                                <input type="text" className="form-control" id="designation" placeholder='Your Designation' />
+                                <input type="text" name="designation" className="form-control" id="designation" placeholder='Your Designation' onChange={handleOnChange}/>
                             </div>
                             <div className="mb-3">
-                                <textarea type="text" className="form-control" id="exampleInputEmail1" placeholder='Your Message' />
+                                <textarea type="text" name="message" className="form-control" id="message" placeholder='Your Message' onChange={handleOnChange}/>
                             </div>
                             <button type="submit" className="blue-btn review-submit-btn">Submit</button>
                         </form>

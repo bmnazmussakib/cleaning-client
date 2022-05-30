@@ -57,56 +57,69 @@ export const modernCardData = [
 
 
 //=============================== Services ===============================
-export const services = [
-    {
-        id:1,
-        img: houseCleaning,
-        serciceName: 'House Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
 
-    },
-    {
-        id:2,
-        img: kitchenCleaning,
-        serciceName: 'Kitchen Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
+export let services;
 
-    },
-    {
-        id:3,
-        img: carpetCleaning,
-        serciceName: 'Carpet Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
+fetch('http://localhost:3030/service-list')
+            .then(response => response.json())
+            .then(json => services = json)
 
-    },
-    {
-        id:4,
-        img: windowCleaning,
-        serciceName: 'Window Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
 
-    },
-    {
-        id:4,
-        img: floorCleaning,
-        serciceName: 'Floor Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
 
-    },
-    {
-        id:5,
-        img: bathroomCleaning,
-        serciceName: 'Bathroom Cleaning',
-        serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
-        price: 2000
+// export const services = [
+//     {
+//         id:1,
+//         img: houseCleaning,
+//         serciceName: 'House Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
 
-    }
-]
+//     },
+//     {
+//         id:2,
+//         img: kitchenCleaning,
+//         serciceName: 'Kitchen Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
+
+//     },
+//     {
+//         id:3,
+//         img: carpetCleaning,
+//         serciceName: 'Carpet Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
+
+//     },
+//     {
+//         id:4,
+//         img: windowCleaning,
+//         serciceName: 'Window Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
+
+//     },
+//     {
+//         id:4,
+//         img: floorCleaning,
+//         serciceName: 'Floor Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
+
+//     },
+//     {
+//         id:5,
+//         img: bathroomCleaning,
+//         serciceName: 'Bathroom Cleaning',
+//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.',
+//         price: 2000
+
+//     }
+// ]
+
+
+
+
 
 
 
@@ -162,33 +175,33 @@ export const teamCard = [
 ]
 
 
-// export let userData;
+export let orderListData;
 
-// fetch('https://jsonplaceholder.typicode.com/todos/1')
-//     .then(response => response.json())
-//     .then(data => {
-//         userData = (data)
-//     })
+fetch('http://localhost:3030/order-list')
+            .then(response => response.json())
+            .then(json => orderListData = json)
 
-export const orderListData = [
-    {
-        username: 'sakib',
-        email: 'sakib@gmail.com',
-        service: 'Window Cleaning',
-        paywith: 'credit card',
-        status: [
-            {
-                status: 'done',
-                value: 1
-            },
-            {
-                status: 'ongoing',
-                value: 2
-            },
-            {
-                status: 'pending',
-                value: 3
-            },
-        ]
-    },
-]
+
+
+// export const orderListData = [
+//     {
+//         username: 'sakib',
+//         email: 'sakib@gmail.com',
+//         service: 'Window Cleaning',
+//         paywith: 'credit card',
+//         status: [
+//             {
+//                 status: 'done',
+//                 value: 1
+//             },
+//             {
+//                 status: 'ongoing',
+//                 value: 2
+//             },
+//             {
+//                 status: 'pending',
+//                 value: 3
+//             },
+//         ]
+//     },
+// ]

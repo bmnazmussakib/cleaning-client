@@ -1,14 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ManageServicesBody from '../ManageServicesBody/ManageServicesBody';
 import LeftSidebar from '../AdminLeftSidebar/AdminLeftSidebar';
 import './ManageServices.css';
 import AdminLeftSidebar from '../AdminLeftSidebar/AdminLeftSidebar';
 import Footer from '../../Shared/Footer/Footer';
-import { services } from '../../../data';
+// import { services } from '../../../data';
 import { Button } from 'bootstrap';
+import { Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 const ManageServices = () => {
+
+    const [services, setServices] = useState();
+
+    const loadData = () => {
+        fetch('http://localhost:3030/service-list')
+            .then(response => response.json())
+            .then(json => setServices(json))
+    }
+
+    useEffect(() => {
+        loadData();
+    }, [])
+
+
+    if (!services) {
+        return (
+            <div className='d-flex justify-content-center align-items-center my-auto' style={{ height: '100vh' }}>
+                <Spinner animation="border" style={{ width: '10em', height: '10em', color: '#90c73e' }} />
+            </div>
+        )
+    }
+
+
+    // Delete Function
+    const handleDelete = (id) => {
+        console.log(id);
+        if (window.confirm("Are you sure that you want to delete the service?")) {
+            fetch(`http://localhost:3030/delete-service/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setTimeout(() => loadData(), 500)
+                })
+                .catch(err => console.log(err));
+        }
+    }
+
+
+    // Update Function
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:3030/service/${id}`)
+            .then(response => response.json())
+            // .then(data => console.log(data))
+    }
+
+
     return (
         <div className="manage-services">
             <div className="row">
@@ -26,7 +75,7 @@ const ManageServices = () => {
                                 <tr className="" >
                                     <th scope="col" className="text-center" >No.</th>
                                     <th scope="col" className="text-center">Service</th>
-                                    <th scope="col" className="text-center">Price</th>
+                                    {/* <th scope="col" className="text-center">Price</th> */}
                                     <th scope="col" className="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -34,19 +83,24 @@ const ManageServices = () => {
                             <tbody>
                                 {
                                     services.map((item, index) => {
-
+                                        // console.log(item._id);
                                         return (
                                             <tr key={index}>
                                                 <th scope="row">
                                                     {index + 1}
                                                 </th>
-                                                <td className="text-center" id='title'>{item.serciceName}</td>
-                                                <td className="text-center" id='price'>$ {item.price}</td>
+                                                <td className="text-center" id='title'>{item.name}</td>
+                                                {/* <td className="text-center" id='price'>$ {item.price}</td> */}
 
                                                 <td className='d-flex justify-content-evenly'>
-                                                    <button className="blue-btn edit-btn">UPDATE</button>
+                                                    
+                                                    <Link to={`update-service/${item._id}`}>
+                                                        <button className="blue-btn edit-btn" onClick={() => handleUpdate(item._id)}>UPDATE</button>
+                                                    </Link>
 
-                                                    <button className="blue-btn delete-btn">DELETE</button>
+                                                    {/* <button clas    sName="blue-btn edit-btn" onClick={() => handleUpdate(item._id)}>UPDATE</button> */}
+
+                                                    <button className="blue-btn delete-btn" onClick={() => handleDelete(item._id)}>DELETE</button>
                                                     {/* <Link to={`/update/${item.id}`}>
                                                         <Button className="btn btn-edit btn-sm">UPDATE</Button>
                                                     </Link>

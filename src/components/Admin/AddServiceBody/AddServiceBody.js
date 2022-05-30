@@ -1,7 +1,134 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AddServiceBody.css';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+
+
+
 
 const AddServiceBody = () => {
+
+
+    let { id } = useParams();
+
+    useEffect(() => {
+        fetch(`http://localhost:3030/manage-services/update-service/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setData({ name: data.name, description: data.description })
+                setImgURL(data.imgURL)
+            })
+    }, [id])
+
+
+    const inititalState = {
+        name: "",
+        description: ""
+    }
+
+    const [data, setData] = useState(inititalState);
+    const [imgURL, setImgURL] = useState("");
+    // let [service, setService] = useState();
+
+    const { name, description } = data;
+
+
+
+    console.log(data);
+    console.log(imgURL);
+
+    let serviceInfo = { ...data, imgURL };
+    // console.log(serviceInfo);
+
+
+    // ----------Submit----------
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (!name || !description || !imgURL) {
+            alert("Please fill the input");
+        } else {
+
+            // console.log(serviceInfo);
+
+            if (!id) {
+                axios.post('http://localhost:3030/add-service', {
+                    name, description, imgURL
+                    // serviceInfo
+                }).then(() => {
+
+                    setData(inititalState);
+                    setImgURL("");
+
+                    document.getElementById('service-name').value = '';
+                    document.getElementById('service-description').value = '';
+                    document.getElementById('service-img').value = '';
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }else {
+                axios.put(`http://localhost:3030/manage-services/update-service/${id}`, {
+                    name, description, imgURL
+                    // serviceInfo
+                }).then(() => {
+
+                    setData(inititalState);
+                    setImgURL("");
+
+                    document.getElementById('service-name').value = '';
+                    document.getElementById('service-description').value = '';
+                    document.getElementById('service-img').value = '';
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }
+        }
+    }
+
+
+    // ----------Input value----------
+    const handleInputChange = (e) => {
+
+        const { name, value } = e.target;
+        setData({ ...data, [name]: value });
+
+
+    }
+
+
+
+    // ------------Image Upload-------------------
+    const handleImgUpload = (e) => {
+        // console.log(e.target.files[0]);
+
+        const imageData = new FormData();
+        imageData.set('key', '9dce04044780a8e8c6cbf435542ead0b');
+        imageData.append('image', e.target.files[0]);
+
+        const requestOptions = {
+            method: 'POST',
+            body: imageData
+        };
+
+        fetch('https://api.imgbb.com/1/upload', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                setImgURL(data.data.display_url);
+            })
+            .catch(error => {
+                console.error(error)
+            });
+
+    }
+
+
+
+
+
+
     return (
         <div className='add-service py-3'>
             <div className="container">
@@ -11,20 +138,27 @@ const AddServiceBody = () => {
                 {/* Form */}
                 <div className="row display-flex justify-content-center">
                     <div className="col-10">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="row mb-3">
                                 <div className="col">
-                                    <input type="text" className="form-control service-name" placeholder="Service Name" id='service-name' name='service-name' />
+                                    <input type="text" className="form-control service-name" placeholder="Service Name" id='service-name' name='name' onChange={handleInputChange} value={name} />
                                 </div>
                                 <div className="col">
-                                    <input type="file" className="form-control service-img" id='service-img' name='service-img' />
+                                    <input type="file" className="form-control service-img" id='service-img' name='img' onChange={handleImgUpload} />
                                 </div>
                             </div>
                             <div className="mb-3">
-                                <textarea class="form-control service-description" id="service-description" rows="6" placeholder="Description" name='service-description'></textarea>
+                                <textarea className="form-control service-description" id="service-description" rows="6" placeholder="Description" name='description' onChange={handleInputChange} value={description}></textarea>
                             </div>
-                            <button type="submit" className="blue-btn review-submit-btn">Submit</button>
+                            <button type="submit" className="blue-btn review-submit-btn" >Submit</button>
                         </form>
+
+                        {/* <form action="/add-service" method="post">
+                            <input type="text" name='name' placeholder='name' />
+                            <input type="text" name='address' placeholder='adress' />
+                            <input type="number" name='phone' placeholder='phone'/>
+                            <input type="submit" value="Submit" />
+                        </form> */}
                     </div>
                 </div>
             </div>
