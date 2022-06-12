@@ -60,7 +60,7 @@ export const modernCardData = [
 
 export let services;
 
-fetch('http://localhost:3030/service-list')
+fetch('https://eco-clean-api.herokuapp.com/service-list')
             .then(response => response.json())
             .then(json => services = json)
 
@@ -177,7 +177,7 @@ export const teamCard = [
 
 export let orderListData;
 
-fetch('http://localhost:3030/order-list')
+fetch('https://eco-clean-api.herokuapp.com/order-list')
             .then(response => response.json())
             .then(json => orderListData = json)
 

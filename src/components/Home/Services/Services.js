@@ -20,8 +20,14 @@ const Services = () => {
 
     const [services, setServices] = useState();
 
+    // useEffect(() => {
+    //     fetch('https://eco-clean-api.herokuapp.com/service-list')
+    //         .then(response => response.json())
+    //         .then(json => setServices(json))
+    // }, [])
+
     useEffect(() => {
-        fetch('http://localhost:3030/service-list')
+        fetch('https://eco-clean-api.herokuapp.com/service-list')
             .then(response => response.json())
             .then(json => setServices(json))
     }, [])

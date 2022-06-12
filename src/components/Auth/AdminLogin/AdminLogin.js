@@ -36,7 +36,7 @@ const AdminLogin = () => {
     console.log(adminEmail)
 
     const getAdminEmail = () => {
-        axios.get('http://localhost:3030/admin-email')
+        axios.get('https://eco-clean-api.herokuapp.com/admin-email')
             .then((response) => {
                 // handle success
                 // console.log(response.data);

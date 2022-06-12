@@ -27,7 +27,7 @@ console.log(service_id);
     // console.log(services);
 
     const loadData = () => {
-        fetch('http://localhost:3030/service-list')
+        fetch('https://eco-clean-api.herokuapp.com/service-list')
             .then(response => response.json())
             .then(data => {
                 setServices(data);
@@ -109,7 +109,7 @@ console.log(service_id);
         else {
             // console.log(selectService);
 
-            axios.post('http://localhost:3030/book-service', {
+            axios.post('https://eco-clean-api.herokuapp.com/book-service', {
                 selectService
             })
             toast.success('Service has been booked successfully. 😍', {

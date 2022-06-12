@@ -19,7 +19,7 @@ const ManageServices = () => {
     const [services, setServices] = useState();
 
     const loadData = () => {
-        fetch('http://localhost:3030/service-list')
+        fetch('https://eco-clean-api.herokuapp.com/service-list')
             .then(response => response.json())
             .then(json => setServices(json))
     }
@@ -43,7 +43,7 @@ const ManageServices = () => {
         console.log(id);
         if (window.confirm("Are you sure that you want to delete the service?")) {
 
-            axios.delete(`http://localhost:3030/delete-service/${id}`)
+            axios.delete(`https://eco-clean-api.herokuapp.com/delete-service/${id}`)
             toast.success('Service Added Successfully', {
                 position: "top-center",
                 autoClose: 5000,
@@ -59,7 +59,7 @@ const ManageServices = () => {
                 loadData();
             }, 500);
 
-            // fetch(`http://localhost:3030/delete-service/${id}`, {
+            // fetch(`https://eco-clean-api.herokuapp.com/delete-service/${id}`, {
             //     method: 'DELETE'
             // })
             
@@ -86,7 +86,7 @@ const ManageServices = () => {
 
     // Update Function
     const handleUpdate = (id) => {
-        fetch(`http://localhost:3030/service/${id}`)
+        fetch(`https://eco-clean-api.herokuapp.com/service/${id}`)
             .then(response => response.json())
         // .then(data => console.log(data))
     }

@@ -22,7 +22,7 @@ const MakeAdminBody = () => {
         if (!email) {
             alert("Please fill the input");
         } else {
-            axios.post('http://localhost:3030/make-admin', {
+            axios.post('https://eco-clean-api.herokuapp.com/make-admin', {
                 email
             })
             

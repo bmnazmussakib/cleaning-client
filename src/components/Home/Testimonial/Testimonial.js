@@ -15,7 +15,7 @@ const Testimonial = () => {
 
   useEffect(() => {
 
-    axios.get('http://localhost:3030/review')
+    axios.get('https://eco-clean-api.herokuapp.com/review')
       .then(function (response) {
         setTestimonial(response.data);
       })

@@ -34,7 +34,7 @@ const ReviewBody = () => {
         if(!name || !designation || !message){
             alert('Input field is empty');
         }else{
-            axios.post('http://localhost:3030/add-review',{
+            axios.post('https://eco-clean-api.herokuapp.com/add-review',{
                 review
             })
             toast.success('Thank you for your review !', {

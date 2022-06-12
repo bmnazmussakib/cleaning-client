@@ -22,7 +22,7 @@ const ServiceBookingList = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:3030/order-list')
+        fetch('https://eco-clean-api.herokuapp.com/order-list')
             .then(response => response.json())
             .then(json => setOrderList(json))
 

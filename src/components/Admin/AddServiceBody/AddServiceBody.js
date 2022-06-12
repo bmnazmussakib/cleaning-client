@@ -15,7 +15,7 @@ const AddServiceBody = () => {
     let { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3030/manage-services/update-service/${id}`)
+        fetch(`https://eco-clean-api.herokuapp.com/manage-services/update-service/${id}`)
             .then(res => res.json())
             .then(data => {
                 setData({ name: data.name, description: data.description })
@@ -66,7 +66,7 @@ const AddServiceBody = () => {
             // console.log(serviceInfo);
 
             if (!id) {
-                axios.post('http://localhost:3030/add-service', {
+                axios.post('https://eco-clean-api.herokuapp.com/add-service', {
                     name, description, imgURL, price
                     // serviceInfo
                 }).then(() => {
@@ -105,7 +105,7 @@ const AddServiceBody = () => {
                     navigate('/manage-services')
                 }, 500);
             } else {
-                axios.put(`http://localhost:3030/manage-services/update-service/${id}`, {
+                axios.put(`https://eco-clean-api.herokuapp.com/manage-services/update-service/${id}`, {
                     name, description, imgURL, price
                     // serviceInfo
                 }).then(() => {
