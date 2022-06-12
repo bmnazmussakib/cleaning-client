@@ -13,49 +13,10 @@ import { Spinner } from 'react-bootstrap';
 
 
 
-// const services = [
-//     {
-//         img: houseCleaning,
-//         serciceName: 'House Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     },
-//     {
-//         img: kitchenCleaning,
-//         serciceName: 'Kitchen Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     },
-//     {
-//         img: carpetCleaning,
-//         serciceName: 'Carpet Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     },
-//     {
-//         img: windowCleaning,
-//         serciceName: 'Window Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     },
-//     {
-//         img: floorCleaning,
-//         serciceName: 'Floor Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     },
-//     {
-//         img: bathroomCleaning,
-//         serciceName: 'Bathroom Cleaning',
-//         serviceDecription: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris amet orci. Aenean dignissim pellentesque.'
-
-//     }
-// ]
-
-
 
 
 const Services = () => {
+
 
     const [services, setServices] = useState();
 

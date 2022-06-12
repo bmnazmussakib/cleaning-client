@@ -1,13 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // import { services } from '../../../data';
 import './ServiceBookingBody.css';
 import { Spinner } from 'react-bootstrap';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from '../../../App';
+import StripePayment from '../../Payment/StripePayment/StripePayment';
 
 
-const ServiceBookingBody = () => {
+const ServiceBookingBody = ({service_id}) => {
+
+console.log(service_id);
+
+
+    const { login } = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = login;
+
+    // console.log(loggedInUser);
+
+
+    const navigate = useNavigate();
+
 
     const [services, setServices] = useState();
+    // console.log(services);
 
     const loadData = () => {
         fetch('http://localhost:3030/service-list')
@@ -49,7 +66,7 @@ const ServiceBookingBody = () => {
     const handleServiceSelect = (e) => {
         var service_id = document.getElementById('select').value;
 
-        const service = services.find(service => service._id == service_id);
+        const service = services.find(service => service._id === service_id);
         setSelectService({ ...selectService, service })
 
     }
@@ -62,10 +79,15 @@ const ServiceBookingBody = () => {
     }
 
 
+    const userEmail = localStorage.getItem('email')
+    // console.log(userEmail);
 
 
 
     const { name, email, service } = selectService;
+    console.log(name);
+    console.log(email);
+    console.log(service);
 
 
     // ----------Submit----------
@@ -73,25 +95,44 @@ const ServiceBookingBody = () => {
         event.preventDefault();
 
         if (!name || !email || !service) {
-            alert("Please fill the input");
+            toast.warning('Please fill the input', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
         }
         else {
-            console.log(selectService);
+            // console.log(selectService);
 
             axios.post('http://localhost:3030/book-service', {
                 selectService
             })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            toast.success('Service has been booked successfully. 😍', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
+            setTimeout(() => {
 
+                navigate('/service-booking-list');
+                // loadData();
+
+            }, 500);
         }
 
 
     }
+
 
 
 
@@ -108,12 +149,12 @@ const ServiceBookingBody = () => {
                                 <input type="text" onChange={handleOnChange} className="form-control" name='name' id="name" placeholder='Your Name' />
                             </div>
                             <div className="mb-3">
-                                <input type="email" onChange={handleOnChange} className="form-control" name='email' id="email" placeholder='Your Email' />
+                                <input type="email" value={loggedInUser.email} onChange={handleOnChange} className="form-control" name='email' id="email" placeholder='Your Email' />
                             </div>
                             <div className="mb-3">
                                 {/* <form action=""> */}
                                 <select className="form-select" name='service' id='select' onChange={() => handleServiceSelect()}>
-                                    <option selected>Select a service</option>
+                                    <option selected value={0}>Select a service</option>
                                     {
                                         services.map((item, index) => <option key={index} value={item._id} >{item.name}</option>)
                                     }
@@ -123,6 +164,14 @@ const ServiceBookingBody = () => {
 
 
                             </div>
+                            <div className="mb-3 ">
+                                    {
+                                        service ? <h4 className='price'>Price: ${service.price}</h4> : <h4 className='price'>Price: $0</h4>
+                                    }
+                            </div>
+
+                            <StripePayment />
+
                             <button type="submit" className="blue-btn review-submit-btn">Pay</button>
                         </form>
                     </div>

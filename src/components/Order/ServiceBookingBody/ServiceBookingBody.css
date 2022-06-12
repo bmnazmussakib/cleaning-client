@@ -3,3 +3,9 @@
 .add-service-title {
     color: var(--primary-color);
 }
+
+.price {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 30px;
+}

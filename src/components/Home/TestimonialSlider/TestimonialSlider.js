@@ -7,6 +7,7 @@ import { BsStarHalf } from 'react-icons/bs';
 
 
 const TestimonialSlider = ({ sliderData }) => {
+    // console.log(sliderData);
 
     const { message, name, designation } = sliderData;
 

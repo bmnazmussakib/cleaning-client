@@ -9,7 +9,9 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/
 import firebaseConfig from '../firebase.config';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../App';
-
+import { Button } from '@material-ui/core';
+import { FcGoogle } from 'react-icons/fc';
+import { styled } from '@mui/material/styles';
 
 
 
@@ -39,10 +41,6 @@ const Login = () => {
         // setTimeout(() => navigate('/'))
     }
 
-    // if (!firebase.apps.length) {
-    //     firebase.initializeApp(firebaseConfig);
-    // }
-
 
 
     const handleGoogleSignIn = () => {
@@ -59,10 +57,13 @@ const Login = () => {
                 localStorage.setItem('displayName', displayName);
                 localStorage.setItem('photoURL', photoURL);
 
-                const signedInUser = { name: localStorage.getItem('displayName'), email: localStorage.getItem('email'), img: localStorage.getItem('photoURL') };
+                // const signedInUser = { displayName: localStorage.getItem('displayName'), email: localStorage.getItem('email'), photoURL: localStorage.getItem('photoURL') };
                 // console.log(signedInUser);
 
                 setLoggedInUser(result.user);
+
+                // setLoggedInUser(signedInUser);
+
                 if (token) {
                     navigate(form);
                 }
@@ -97,7 +98,29 @@ const Login = () => {
         localStorage.removeItem('email');
         localStorage.removeItem('displayName');
         localStorage.removeItem('photoURL');
+
+        console.log("Log Out");
     }
+
+
+    const LoginButton = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 20,
+        padding: '10px 16px',
+        border: '2px solid',
+        borderRadius: '50px',
+        lineHeight: 1.5,
+        borderColor: '#696969',
+        color: '#696969',
+        fontFamily: 'Rajdhani',
+        fontWeight: 900,
+        '&:hover': {
+            borderColor: '#90c73e',
+            color: '#90c73e',
+    
+        },
+    });
 
 
 
@@ -106,10 +129,10 @@ const Login = () => {
             <Header />
             <div className="container">
                 <div className="login">
-                    <h1 className=''>User Login</h1>
-                    <button className='login-btn' onClick={handleGoogleSignIn}>Login with Google</button>
-                    <br /><br /><br />
-                    <button className='login-btn' onClick={handleGoogleSignOut}>Logout</button>
+                    <h1 className='login-title'>User Login</h1>
+                    {/* <button className='login-btn' onClick={handleGoogleSignIn}>Login with Google</button> */}
+                    {/* <br /><br /> */}
+                    <LoginButton variant="outlined" size="large" onClick={handleGoogleSignIn}> <FcGoogle className='fs-2 me-3'  /> Continue with Google</LoginButton>
                 </div>
             </div>
             <Footer />

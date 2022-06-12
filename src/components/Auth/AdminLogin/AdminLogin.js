@@ -3,11 +3,17 @@ import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 import './AdminLogin.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../App';
+import { AdminContext, UserContext } from '../../../App';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import firebaseConfig from '../firebase.config';
 import axios from 'axios';
+
+import { Button } from '@material-ui/core';
+import { FcGoogle } from 'react-icons/fc';
+import { styled } from '@mui/material/styles';
+import { toast } from 'react-toastify';
+
 
 const AdminLogin = () => {
 
@@ -68,11 +74,48 @@ const AdminLogin = () => {
                     const signedInAdmin = { name: localStorage.getItem('adminName'), email: localStorage.getItem('adminEmail'), img: localStorage.getItem('adminImg') };
 
                     setLoggedInAdmin(result.user);
+
+
+
                     if (token) {
-                        navigate(form);
+                        
+
+                        toast.success('Login Successfully', {
+                            position: "top-center",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: 'dark',
+                        })
+
+                        setTimeout(() => {
+
+                            navigate(form);
+                            // loadData();
+            
+                        }, 500);
                     }
                 }else{
-                    document.getElementById('sorry').style.display = 'block';
+                    // document.getElementById('sorry').style.display = 'block';
+
+                    toast.error('You are not an Admin', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark',
+                    })
+                    // setTimeout(() => {
+        
+                    //     navigate('/service-booking-list');
+        
+                    // }, 500);
                 }
 
 
@@ -90,15 +133,34 @@ const AdminLogin = () => {
 
     }
 
+    const LoginButton = styled(Button)({
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 20,
+        padding: '10px 16px',
+        border: '2px solid',
+        borderRadius: '50px',
+        lineHeight: 1.5,
+        borderColor: '#696969',
+        color: '#696969',
+        fontFamily: 'Rajdhani',
+        fontWeight: 900,
+        '&:hover': {
+            borderColor: '#90c73e',
+            color: '#90c73e',
+    
+        },
+    });
+
     return (
         <>
             <Header />
             <div className="container">
                 <div className="login">
-                    <h1 className=''>Admin Login</h1>
-                    <button className='login-btn' onClick={handleGoogleSignIn}>Login with Google</button>
-                    <br /><br /><br />
-                    <button className='login-btn' onClick="">Logout</button>
+                    <h1 className='login-title'>Admin Login</h1>
+                    {/* <button className='login-btn' onClick={handleGoogleSignIn}>Login with Google</button> */}
+
+                    <LoginButton variant="outlined" size="large" onClick={handleGoogleSignIn}> <FcGoogle className='fs-2 me-3'  /> Continue with Google</LoginButton>
 
                     <h2 className="text-danger" id="sorry" style={{display: 'none'}}>Sorry You are not an Admin !!!</h2>
                 </div>

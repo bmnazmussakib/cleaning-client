@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import './MakeAdminBody.css';
 
 const MakeAdminBody = () => {
@@ -24,12 +25,22 @@ const MakeAdminBody = () => {
             axios.post('http://localhost:3030/make-admin', {
                 email
             })
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+            
+            toast.success('New Admin Added 😍', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
+            setTimeout(() => {
+
+                window.location.reload()
+
+            }, 5000);
         }
     }
 

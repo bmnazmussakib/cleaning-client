@@ -7,10 +7,14 @@ import Footer from '../../Shared/Footer/Footer';
 // import { services } from '../../../data';
 import { Button } from 'bootstrap';
 import { Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 
 const ManageServices = () => {
+
+    const navigate = useNavigate();
 
     const [services, setServices] = useState();
 
@@ -38,14 +42,44 @@ const ManageServices = () => {
     const handleDelete = (id) => {
         console.log(id);
         if (window.confirm("Are you sure that you want to delete the service?")) {
-            fetch(`http://localhost:3030/delete-service/${id}`, {
-                method: 'DELETE'
+
+            axios.delete(`http://localhost:3030/delete-service/${id}`)
+            toast.success('Service Added Successfully', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
             })
-                .then(res => res.json())
-                .then(data => {
-                    setTimeout(() => loadData(), 500)
-                })
-                .catch(err => console.log(err));
+            setTimeout(() => {
+                // navigate('/manage-services')
+                loadData();
+            }, 500);
+
+            // fetch(`http://localhost:3030/delete-service/${id}`, {
+            //     method: 'DELETE'
+            // })
+            
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         console.log(data);
+            //     })
+            //     .catch(err =>
+            //         toast.error(err, {
+            //             position: "top-center",
+            //             autoClose: 5000,
+            //             hideProgressBar: false,
+            //             closeOnClick: true,
+            //             pauseOnHover: true,
+            //             draggable: true,
+            //             progress: undefined,
+            //             theme: 'dark',
+            //         })
+            //     );
+                
         }
     }
 
@@ -54,7 +88,7 @@ const ManageServices = () => {
     const handleUpdate = (id) => {
         fetch(`http://localhost:3030/service/${id}`)
             .then(response => response.json())
-            // .then(data => console.log(data))
+        // .then(data => console.log(data))
     }
 
 
@@ -93,7 +127,7 @@ const ManageServices = () => {
                                                 {/* <td className="text-center" id='price'>$ {item.price}</td> */}
 
                                                 <td className='d-flex justify-content-evenly'>
-                                                    
+
                                                     <Link to={`update-service/${item._id}`}>
                                                         <button className="blue-btn edit-btn" onClick={() => handleUpdate(item._id)}>UPDATE</button>
                                                     </Link>

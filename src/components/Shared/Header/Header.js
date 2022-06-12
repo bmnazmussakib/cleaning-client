@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import './Header.css';
 import { BsPhoneVibrateFill } from 'react-icons/bs';
@@ -8,23 +8,40 @@ import { MdEmail } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaClock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../App';
-import { getAuth, signOut } from 'firebase/auth';
+
+import { AdminContext, UserContext } from '../../../App';
+// import { getAuth, signOut } from 'firebase/auth';
+// import { initializeApp } from "firebase/app";
+
 import { initializeApp } from "firebase/app";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import firebaseConfig from '../../Auth/firebase.config';
+
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import { toast } from 'react-toastify';
+import usericon from '../../../img/user-icon.png'
 
 
 
 
 const Header = () => {
 
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+
     const { admin, login } = useContext(UserContext);
+    // const { login } = useContext(UserContext);
+    // const { admin } = useContext(AdminContext);
     const [loggedInAdmin, setLoggedInAdmin] = admin;
     const [loggedInUser, setLoggedInUser] = login;
+
+    console.log(loggedInAdmin);
+    console.log(loggedInUser);
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -39,45 +56,76 @@ const Header = () => {
 
 
     const handleLogout = () => {
-        console.log(admin);
-        console.log(login);
+        // console.log(admin);
+        // console.log(login);
         setAnchorEl(null);
     }
 
 
 
     const navigate = useNavigate();
-    // const { login } = useContext(UserContext);
-    // console.log(login);
 
-    // User Token
+
+    // Token
     const userToken = localStorage.getItem('token');
+    const adminToken = localStorage.getItem('adminToken');
+
+    const userImage = localStorage.getItem('photoURL')
+    const adminImage = localStorage.getItem('adminImg')
 
 
     // Sign out
     const handleGoogleSignOut = () => {
+
         const auth = getAuth();
         signOut(auth)
             .then(() => {
             })
             .catch((error) => {
             });
-        localStorage.removeItem("token");
-        localStorage.removeItem('body');
-        localStorage.removeItem('email');
-        localStorage.removeItem('displayName');
-        localStorage.removeItem('photoURL');
+
+        if (userToken) {
+            localStorage.removeItem("token");
+            localStorage.removeItem('body');
+            localStorage.removeItem('email');
+            localStorage.removeItem('displayName');
+            localStorage.removeItem('photoURL');
+        }
+
+        if (adminToken) {
+            localStorage.removeItem("adminImg");
+            localStorage.removeItem('adminEmail');
+            localStorage.removeItem('adminName');
+            localStorage.removeItem('adminToken');
+        }
+
 
         console.log("Log out");
+
+        toast.success('Log Out Successfully', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark',
+        })
+        setTimeout(() => {
+
+            // navigate('/login');
+            window.location.reload();
+            // loadData();
+
+        }, 500);
     }
 
-
-    // const adminNav = document.getElementById('admin-nav');
-    if (userToken) {
-        document.getElementById('admin-nav').style.display = "none";
-    }
-
-
+    useEffect(()=>{
+        if(userToken){
+            document.getElementById('admin-nav').style.display = "none";
+        }
+    },[])
 
     return (
         <header>
@@ -108,20 +156,44 @@ const Header = () => {
                                     </Button> */}
 
                                     {/* <Avatar aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>H</Avatar> */}
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}/>
 
-                                    <Menu
-                                        id="simple-menu"
-                                        anchorEl={anchorEl}
-                                        keepMounted
-                                        open={Boolean(anchorEl)}
-                                        onClose={handleClose}
-                                    >
-                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                                        <MenuItem id='logout' onClick={handleLogout}>Logout</MenuItem>
+                                    <Avatar alt="Remy Sharp" src={userToken ? userImage : adminToken ? adminImage : usericon} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
 
-                                    </Menu>
+
+                                    {
+                                        userToken ? <Menu
+                                            id="simple-menu"
+                                            anchorEl={anchorEl}
+                                            keepMounted
+                                            open={Boolean(anchorEl)}
+                                            onClose={handleClose}
+                                        >
+                                            <MenuItem onClick={handleClose}><Link to="/service-booking-list">Dashboard</Link></MenuItem>
+                                            <MenuItem id='logout' onClick={handleGoogleSignOut}>Logout</MenuItem>
+
+                                        </Menu> :
+                                            adminToken ? <Menu
+                                                id="simple-menu"
+                                                anchorEl={anchorEl}
+                                                keepMounted
+                                                open={Boolean(anchorEl)}
+                                                onClose={handleClose}
+                                            >
+                                                <MenuItem onClick={handleClose}><Link to="/add-service">Dashboard</Link></MenuItem>
+                                                <MenuItem id='logout' onClick={handleGoogleSignOut}>Logout</MenuItem>
+
+                                            </Menu>
+                                                : <Menu
+                                                    id="simple-menu"
+                                                    anchorEl={anchorEl}
+                                                    keepMounted
+                                                    open={Boolean(anchorEl)}
+                                                    onClose={handleClose}
+                                                >
+                                                    <MenuItem id='logout'><Link to="/login">Login</Link></MenuItem>
+
+                                                </Menu>
+                                    }
                                 </li>
                             </ul>
                         </div>
@@ -142,11 +214,11 @@ const Header = () => {
                             <Nav.Link className='nav-menu' href="#about">About</Nav.Link>
                             <Nav.Link className='nav-menu' href="#team">Team</Nav.Link>
                             <Nav.Link className='nav-menu' href="#footer">Contact Us</Nav.Link>
-                            <Nav.Link className='nav-menu' id='admin-nav' ><Link className='admin-link' to="/add-service">Admin</Link></Nav.Link>
+                            <Nav.Link className='nav-menu' id='admin-nav' style={{display: 'block'}} ><Link className='admin-link' to="/add-service">Admin</Link></Nav.Link>
 
                             {
-                                userToken ? <Nav.Link className='nav-menu' ><a className='admin-link' href="/" onClick={handleGoogleSignOut}>Logout</a></Nav.Link>
-                                    : <Nav.Link className='nav-menu' ><Link className='admin-link' to="/login">Login</Link></Nav.Link>
+                                userToken ? <Nav.Link className='nav-menu user-login' ><p className='admin-link' onClick={handleGoogleSignOut}>Logout</p></Nav.Link>
+                                    : <Nav.Link className='nav-menu user-login' ><Link className='admin-link' to="/login">Login</Link></Nav.Link>
                             }
 
                         </Nav>

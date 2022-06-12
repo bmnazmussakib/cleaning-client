@@ -1,8 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ReviewBody.css';
 
 const ReviewBody = () => {
+
+
+
+    const navigate = useNavigate();
 
     const initialState = {
         name: "",
@@ -31,10 +37,24 @@ const ReviewBody = () => {
             axios.post('http://localhost:3030/add-review',{
                 review
             })
-            .then(res => res.json())
-            .catch(error => {
-                console.log(error);
+            toast.success('Thank you for your review !', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
             })
+            setTimeout(() => {
+                navigate('/')
+                // loadData();
+            }, 500);
+            // .then(res => res.json())
+            // .catch(error => {
+            //     console.log(error);
+            // })
         }
     }
 

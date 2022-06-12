@@ -7,7 +7,16 @@ import { Link } from 'react-router-dom';
 
 const AllServices = ({ services, id }) => {
 
-    const { img, name, decription } = services;
+    // console.log('id: ', id);
+    // console.log('services : ', services);
+
+
+    const handleBookService = (id) => {
+        // console.log("ID GET");
+        // console.log(id);
+    }
+
+    const { img, name, decription, _id } = services;
 
     return (
         <div className="col">
@@ -20,9 +29,11 @@ const AllServices = ({ services, id }) => {
                 </div>
                 <div className="card-body p-0">
                     <p className="service-card-text card-text">{decription}</p>
-                    <Link to="/service-booking"><a href="#">Read more <BiChevronRight /></a></Link>
+                    <Link to="/service-booking" >Read more <BiChevronRight /></Link>
+                    <Link to={`/service-booking/${_id}`} onClick={() => handleBookService(_id)}>Read more id <BiChevronRight /></Link>
                 </div>
             </div>
+            
         </div>
     );
 };
