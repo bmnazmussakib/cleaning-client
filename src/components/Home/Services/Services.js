@@ -19,6 +19,7 @@ const Services = () => {
 
 
     const [services, setServices] = useState();
+    // console.log(services);
 
     // useEffect(() => {
     //     fetch('https://eco-clean-api.herokuapp.com/service-list')
