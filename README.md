@@ -2,8 +2,10 @@
 
 Eco Clean is a Cleaning Service App. 
 
+#### User:
 Users can book a cleaning service here. They have to log in before booking a service. Users can pay with a debit/credit card.
 
+#### Admin:
 Only some selected users can sign in as an Admin. Admin can add, update, and delete services. Admin can manage the services booked by users. Only an admin can make another person an admin.
 
 ### Installation
